@@ -11,8 +11,8 @@ Hydra is a validation library for Python that provides a simple and easy way to 
 ## Installation
 Hydra can be installed using pip:
 
-```bash
-$ pip install hydra
+```shell
+pip install hydra
 ```
 
 
