@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "hydra"
+name = "hydrah"
 version = "0.1.0"
 description = ""
-authors = ["marcomaiermm <mm.maiermarco@gmail.com>"]
+authors = ["Marco Maier <mm.maiermarco@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

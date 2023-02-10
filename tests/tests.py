@@ -1,6 +1,6 @@
 import unittest
 import datetime
-from hydra import h
+from hydrah import h
 
 class TestHydra(unittest.TestCase):
     def test_string(self):

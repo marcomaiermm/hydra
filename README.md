@@ -1,6 +1,6 @@
 # Hydra Validator Library
 
-Hydra is a validation library for Python that provides a simple and easy way to validate inputs in your applications. With Hydra, you can validate user inputs, command-line arguments, or configuration files with just a few lines of code.
+Hydrah is a validation library for Python that provides a simple and easy way to validate inputs in your applications. With Hydrah, you can validate user inputs, command-line arguments, or configuration files with just a few lines of code.
 
 ## Features
 - Simple and easy to use
@@ -9,10 +9,10 @@ Hydra is a validation library for Python that provides a simple and easy way to 
 - Provides a `coerce` method to automatically convert inputs to the desired data type
 
 ## Installation
-Hydra can be installed using pip:
+h can be installed using pip:
 
 ```shell
-pip install hydra
+pip install hydrah
 ```
 
 
@@ -20,7 +20,7 @@ pip install hydra
 To validate an input, you need to first create a validator instance for the desired data type. For example, to validate a string input:
 
 ```python
-from hydra import h
+from hydrah import h
 
 validator = h.string()
 
@@ -33,7 +33,7 @@ else:
 To validate a list of strings:
 
 ```python
-from hydra import h
+from hydrah import h
 
 list_validator = h.list()string()
 
@@ -46,7 +46,7 @@ else:
 To validate an object:
 
 ```python
-from hydra import h
+from hydrah import h
 
 object_validator = h.object({
     "name": h.string(),
@@ -61,12 +61,12 @@ else:
 
 ## Custom Validators
 
-Hydra can also be extended to support custom data types. To create a custom validator, you need to inherit from the Validator class and implement the is_valid and get_error_message methods.
+Hydrah can also be extended to support custom data types. To create a custom validator, you need to inherit from the Validator class and implement the is_valid and get_error_message methods.
 
 For example, to create a validator for boolean inputs:
 
 ```python
-from hydra import Validator
+from hydrah import Validator
 
 class BooleanValidator(Validator):
     def is_valid(self, value):
@@ -78,10 +78,10 @@ class BooleanValidator(Validator):
 
 ## Coercion
 
-Hydra also provides a coerce method to automatically convert inputs to the desired data type. For example:
+Hydrah also provides a coerce method to automatically convert inputs to the desired data type. For example:
 
 ```python
-from hydra import h
+from hydrah import h
 
 validator = h.integer()
 
@@ -93,20 +93,20 @@ print(type(value)) # <class 'int'>
 
 ## Creating Objects with Optional Schemas
 
-In some cases, you may want to define a schema that is optional, meaning that it can either be present or absent in the data. To define an optional schema in Hydra, you can either use `hydra.string().optional()` or `hydra.optional(hydra.string())`.
+In some cases, you may want to define a schema that is optional, meaning that it can either be present or absent in the data. To define an optional schema in Hydrah, you can either use `hydrah.h.string().optional()` or `hydrah.h.optional(hydrah.h.string())`.
 
 Here's an example of how you could define an object with an optional string field using both methods:
 
 ```python
-from hydra import h
+from hydrah import h
 # Using string().optional()
 optional_string_validator = h.object({
     "optional_field": h.string().optional()
 })
 
-# Using optional(hydra.string())
+# Using optional(hydrah.h.string())
 optional_string_validator = h.object({
-    "optional_field": h.optional(hydra.string())
+    "optional_field": h.optional(hydrah.string())
 })
 
 # Both of these validators will accept the following data:
