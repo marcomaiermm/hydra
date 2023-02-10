@@ -20,9 +20,9 @@ pip install hydra
 To validate an input, you need to first create a validator instance for the desired data type. For example, to validate a string input:
 
 ```python
-from hydra import string
+from hydra import h
 
-validator = string()
+validator = h.string()
 
 if validator.is_valid("hello"):
     print("Valid input")
@@ -33,9 +33,9 @@ else:
 To validate a list of strings:
 
 ```python
-from hydra import list
+from hydra import h
 
-list_validator = list(string())
+list_validator = h.list()string()
 
 if list_validator.is_valid(["hello", "world"]):
     print("Valid input")
@@ -46,11 +46,11 @@ else:
 To validate an object:
 
 ```python
-from hydra import object
+from hydra import h
 
-object_validator = object({
-    "name": string(),
-    "age": int()
+object_validator = h.object({
+    "name": h.string(),
+    "age": h.integer()
 })
 
 if object_validator.is_valid({"name": "John", "age": 30}):
@@ -76,25 +76,14 @@ class BooleanValidator(Validator):
         return f"Expected boolean, but got {type(value).__name__}"
 ```
 
-To use the custom validator:
-
-```python
-validator = BooleanValidator()
-
-if validator.is_valid(True):
-    print("Valid input")
-else:
-    print(validator.get_error_message("hello"))
-```
-
 ## Coercion
 
 Hydra also provides a coerce method to automatically convert inputs to the desired data type. For example:
 
 ```python
-from hydra import int
+from hydra import h
 
-validator = int()
+validator = h.integer()
 
 value = validator.coerce("10")
 
@@ -109,14 +98,15 @@ In some cases, you may want to define a schema that is optional, meaning that it
 Here's an example of how you could define an object with an optional string field using both methods:
 
 ```python
+from hydra import h
 # Using string().optional()
-optional_string_validator = hydra.object({
-    "optional_field": hydra.string().optional()
+optional_string_validator = h.object({
+    "optional_field": h.string().optional()
 })
 
 # Using optional(hydra.string())
-optional_string_validator = hydra.object({
-    "optional_field": hydra.optional(hydra.string())
+optional_string_validator = h.object({
+    "optional_field": h.optional(hydra.string())
 })
 
 # Both of these validators will accept the following data:
@@ -131,7 +121,3 @@ data = {}
 
 assert optional_string_validator.is_valid(data)
 ```
-
-## Conclusion
-
-Hydra is a simple and easy to use library for validating inputs in Python. Whether you're working on a small project or a large enterprise
