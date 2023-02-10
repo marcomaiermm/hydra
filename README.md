@@ -1,3 +1,5 @@
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hydrah?style=plastic)
+
 # Hydra Validator Library
 
 Hydrah is a validation library for Python that provides a simple and easy way to validate inputs in your applications. With Hydrah, you can validate user inputs, command-line arguments, or configuration files with just a few lines of code.
