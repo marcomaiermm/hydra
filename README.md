@@ -91,7 +91,7 @@ else:
 
 Hydra also provides a coerce method to automatically convert inputs to the desired data type. For example:
 
-```
+```python
 from hydra import int
 
 validator = int()
